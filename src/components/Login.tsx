@@ -16,11 +16,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import loginImg from "../imgs/login.png";
 import registerImg from "../imgs/register.png";
+import useFetchIP from "../hooks/useFetchIP";
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const user = useAppSelector(selectUser);
+
+  const [city] = useFetchIP();
 
   const [isRegistered, setIsRegistered] = useState(false);
   const [errMsg, setErrMsg] = useState("");
@@ -50,14 +53,17 @@ const Login = () => {
     });
   }, [dispatch]);
 
-
   const handleLogIn = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
 
       console.log(user);
       console.log(await user.user.getIdToken());
-      navigate("/home");
+      if (city === "Mérida") {
+        navigate("/home");
+      } else {
+        navigate("/notAble");
+      }
       //   return user;
     } catch (error) {
       setErrMsg("Algo salió mal, intenta de nuevo!");
@@ -70,7 +76,7 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((data) => {
           setSuccessMsg("Usuario registrado! Ya puedes iniciar sesión");
-          console.log('Usuario creado con éxito');
+          console.log("Usuario creado con éxito");
           console.log(data.user);
         })
         .catch((err) => alert(err)); // when email is already in use for example
