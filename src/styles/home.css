@@ -1,18 +1,16 @@
-
 .info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .info > img {
-    width: 80px;
-    object-fit: contain;
-  }
-  
-  .info > span {
-    margin-left: 20px;
-    text-decoration: underline;
-    color: #29D884;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info > img {
+  width: 80px;
+  object-fit: contain;
+}
+
+.info > span {
+  margin-left: 20px;
+  text-decoration: underline;
+  color: #29d884;
+}

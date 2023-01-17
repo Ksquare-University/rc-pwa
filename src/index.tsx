@@ -17,21 +17,20 @@ const root = createRoot(container);
 
 // const router = createBrowserRouter([
 const router = createHashRouter([
-  { 
-    path: "/", 
+  {
+    path: "/",
     element: <App />,
     children: [
-      { 
-        path: "", 
-        element: <Login />
+      {
+        path: "",
+        element: <Login />,
       },
-      { 
-        path: "home", 
-        element: <Home /> 
+      {
+        path: "home",
+        element: <Home />,
       },
     ],
   },
-
 ]);
 
 root.render(
