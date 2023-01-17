@@ -11,6 +11,7 @@ import App from "./App";
 import "./styles/index.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import NotAble from "./components/NotAble";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -28,6 +29,10 @@ const router = createHashRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "notAble",
+        element: <NotAble />,
       },
     ],
   },
