@@ -25,7 +25,7 @@ const Footer = () => {
         <AiOutlineTwitter className="socialIcon" onClick={handleTwitter} />
         <AiOutlineInstagram className="socialIcon" onClick={handleInstagram} />
       </div>
-      <div>2023 Rappi Inc. All rights reserved</div>
+      <div>© 2023 Rappi Inc. All rights reserved</div>
     </footer>
   );
 };
