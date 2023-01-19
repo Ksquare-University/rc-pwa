@@ -1,18 +1,18 @@
-
 .info {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  
-  .info > img {
-    width: 80px;
-    object-fit: contain;
-  }
-  
-  .info > span {
+
+  .info span {
     margin-left: 20px;
-    text-decoration: underline;
     color: #29D884;
   }
   
+  h2{
+    color: #ff441f;
+    background-color: rgb(254, 229, 205);
+    padding: 1.5rem;
+    width: 92%;
+    margin-top: 0;
+  }

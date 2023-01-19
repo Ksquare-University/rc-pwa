@@ -1,12 +1,30 @@
-
-import { Outlet } from "react-router-dom";
-import './styles/App.css';
+import { Route, Routes } from "react-router-dom";
+import "./styles/App.css";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Layout from "./components/Layout";
+import Public from "./pages/Public";
+import RequireAuth from "./context/RequireAuth";
+import { AuthProvider } from "./context/AuthCtx";
 
 function App() {
-
   return (
     <div className="App">
-      <Outlet/>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* Public Routes */}
+            <Route index element={<Public />} />
+            <Route path="login" element={<Login />} />
+
+            {/* Private Routes */}
+            <Route path="home" element={<RequireAuth>
+              <Home />
+            </RequireAuth>}/>
+
+          </Route>
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }
