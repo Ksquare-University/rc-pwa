@@ -14,18 +14,17 @@ const Home = (props: Props) => {
   // const email = useAppSelector(selectEmail);
   // const user = useAppSelector(selectUser);
   // const token = useAppSelector(selectToken);
-  const {user ,logOut, loading} = useAuth(); // contiene el contexto de autenticación, podemos acceder a sus props
-
+  const { user, logOut, loading } = useAuth(); // contiene el contexto de autenticación, podemos acceder a sus props
 
   const handleLogout = async () => {
     await logOut();
   };
 
-  if(loading){
-    return <h1>Loading ....</h1>
+  if (loading) {
+    return <h1>Loading ....</h1>;
   }
 
-  const welcome = user ? `Hola, ${user.displayName}!` : 'Bievenid@!!!';
+  const welcome = user ? `Hola, ${user.displayName}!` : "Bievenid@!!!";
 
   console.log(user.accessToken); // para facilitar el copy paste en postman
 
@@ -45,11 +44,16 @@ const Home = (props: Props) => {
           <p>Email:</p> <span>{user.email}</span>
         </div>
         <div className="info">
-          <p>Rol: <br/></p> <span>{user.reloadUserInfo.customAttributes && (user.reloadUserInfo.customAttributes).split('"')[3]}</span>
+          <p>
+            Rol: <br />
+          </p>{" "}
+          <span>
+            {user.reloadUserInfo.customAttributes &&
+              user.reloadUserInfo.customAttributes.split('"')[3]}
+          </span>
         </div>
 
         <button onClick={handleLogout}>Salir</button>
-
       </div>
     </div>
   );
