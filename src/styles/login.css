@@ -48,12 +48,22 @@
   
 .form .error-msg{
     font-size: medium;
-    color: rgb(221, 38, 38)
+    color: rgb(221, 38, 38);
+    border: 1px solid rgb(221, 38, 38);
+    background-color: rgb(253, 233, 233);
+    padding: 0.5rem;
+    width: 92%;
+    margin-top: 0;
 }
 
 .form .success-msg{
     font-size: medium;
-    color: rgb(66, 131, 31)
+    color: rgb(66, 131, 31);
+    border: 1px solid rgb(66, 131, 31);
+    background-color: rgb(229, 242, 222);
+    padding: 0.5rem;
+    width: 92%;
+    margin-top: 0;
 }
 
 .offscreen{

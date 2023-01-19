@@ -1,13 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { RootState } from '../app/store'
 
-interface User {
+
+interface Auth {
     user: string
     token: string
+    // loading: 'idle' | 'pending' | 'success' | 'failed'
 }
 
-const initialState: User = {
+const initialState: Auth = {
     user: "",
     token: "",
+    // loading: 'idle',
 }
 
 const authSlice = createSlice({
@@ -22,12 +26,23 @@ const authSlice = createSlice({
     setLogOut: () => {
         return initialState
     }
-  }
+  },
+  // extraReducers: (builder) => {
+  //   builder.addCase(fetchUserByUid.pending, (state) => {
+  //       state.loading = 'pending'
+  //   })
+  //   builder.addCase(fetchUserByUid.fulfilled, (state, action) => {
+  //     const {user, accessToken} = action.payload
+  //       state.user = user
+  //       state.token = accessToken
+  //       state.loading = 'success';
+  //   })
+// },
 });
 
 export const {setLogInCredentials, setLogOut} = authSlice.actions
 
-export const selectUser = (state: { auth: { user: any; }; }) => state.auth.user;
-export const selectToken = (state: { auth: { token: any; }; }) => state.auth.token;
+export const selectUser = (state: RootState) => state.auth.user;
+export const selectToken = (state: RootState) => state.auth.token;
 
 export default authSlice.reducer

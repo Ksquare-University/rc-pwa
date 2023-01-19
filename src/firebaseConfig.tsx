@@ -1,6 +1,6 @@
 //  RC-PWA APP Config file
 import * as firebase from "firebase/app";
-import { getAuth } from 'firebase/auth';
+import { getAuth } from "firebase/auth";
 
 // real project's firebase
 // export const firebaseConfig = {
@@ -13,16 +13,16 @@ import { getAuth } from 'firebase/auth';
 //     measurementId: "G-NX1GS5PB21"
 // };
 
-// personal firebase test 
+// personal firebase for tests
 const firebaseConfig = {
-    apiKey: "AIzaSyA3ZUOvBQoCm17VCjmy2vmeJthROUm7aHY",
-    authDomain: "rappi-clone-30001.firebaseapp.com",
-    projectId: "rappi-clone-30001",
-    storageBucket: "rappi-clone-30001.appspot.com",
-    messagingSenderId: "199308072088",
-    appId: "1:199308072088:web:7f6a317761af9a3dfdeced",
-    measurementId: "G-EDV9HF1EJR"
-  };
+  apiKey: "AIzaSyA3ZUOvBQoCm17VCjmy2vmeJthROUm7aHY",
+  authDomain: "rappi-clone-30001.firebaseapp.com",
+  projectId: "rappi-clone-30001",
+  storageBucket: "rappi-clone-30001.appspot.com",
+  messagingSenderId: "199308072088",
+  appId: "1:199308072088:web:7f6a317761af9a3dfdeced",
+  measurementId: "G-EDV9HF1EJR",
+};
 
 export const firebaseApp = firebase.initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
