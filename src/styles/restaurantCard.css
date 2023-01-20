@@ -1,0 +1,23 @@
+.dishitemContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.restaurantCard {
+  width: 350px;
+  height: auto;
+  margin-left: 50px;
+}
+
+.restaurantImage {
+  width: 100%;
+  height: 200px;
+}
+
+.restaurantTitle {
+  text-align: center;
+}
+
+.buttonContainer {
+  margin-left: 50px;
+}
