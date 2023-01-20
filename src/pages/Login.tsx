@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import "../styles/login.css";
-// import { useAppDispatch, useAppSelector } from "../app/hooks";
-// import {
-//   setLogInCredentials,
-//   selectUser,
-// } from "../features/authSlice";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../imgs/login.png";
 import registerImg from "../imgs/register.png";
@@ -14,10 +9,9 @@ import useFetchIP from "../hooks/useFetchIP";
 type Props = {};
 
 const Login = (props: Props) => {
-  // const dispatch = useAppDispatch();
-  // const user = useAppSelector(selectUser);
+
   const navigate = useNavigate();
-  const { logIn, signUp } = useAuth(); // aqui tenemnos un objeto que contiene el contexto de autenticación, podemos acceder a sus props
+  const { user, logIn, signUp } = useAuth(); // aqui tenemnos un objeto que contiene el contexto de autenticación, podemos acceder a sus props
 
   const [isRegistered, setIsRegistered] = useState(false);
   const [errMsg, setErrMsg] = useState("");
@@ -44,7 +38,9 @@ const Login = (props: Props) => {
         setErrMsg(`${loggedIn}`);
       }
       if (city === "Mérida") {
-        navigate("/home");
+        user.reloadUserInfo.customAttributes.split('"')[3] === "customer"
+        ? navigate("/home")
+        : setErrMsg("Error: You must have a customer role to login");
       } else {
         navigate("/notAble");
       }
