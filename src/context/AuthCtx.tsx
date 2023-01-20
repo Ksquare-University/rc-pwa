@@ -11,10 +11,9 @@ import {
 
 interface IAuthContext {
   user: any;
-  signUp: (email: string, password: string) => Promise<string | void>;
-  logIn: (email: string, password: string) => Promise<string | void>;
+  signUp: (email: string, password: string) => Promise<any>;
+  logIn: (email: string, password: string) => Promise<any>;
   logOut: () => any;
-  loading: any;
 }
 
 let AuthContext = createContext<IAuthContext>(null!);
@@ -27,53 +26,46 @@ interface Props {
 export const AuthProvider = ({ children }: Props) => {
 
   const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
 
-  const signUp = (email: string, password: string) => {
-    const newUser = createUserWithEmailAndPassword(auth, email, password)
-      .then((data) => {
-        console.log("¡Usuario creado con éxito!");
-        console.log(data.user);
-      })
-      .catch((err) => {
-        console.error(err);
-        const errMsg: string = (err.message).split(":")[1];
-        return errMsg;
-      });
-    return newUser;
+  const signUp = async (email: string, password: string) => {
+    try {
+      const newUser = await createUserWithEmailAndPassword(auth, email, password)
+      console.log("¡Usuario creado con éxito!");
+      console.log(newUser);
+      return newUser;
+    } catch (error: any) {
+      console.error(error);
+      const errMsg: string = (error.message).split(":")[1];
+      return errMsg;
+    }
   };
 
-  const logIn = (email: string, password: string) => {
-    const loggedUser = signInWithEmailAndPassword(auth, email, password)
-      .then((data) => {
-        console.log("Inicio de sesión exitoso");
-        console.log(data.user);
-      })
-      .catch((err) => {
-        console.error(err);
-        const errMsg: string = (err.message).split(":")[1];
-        return errMsg;
-      });
-    return loggedUser;
+  const logIn = async (email: string, password: string) => {
+    try {
+      const loggedUser = await signInWithEmailAndPassword(auth, email, password)
+      console.log(loggedUser);
+      return loggedUser;
+    } catch (error: any) {
+      console.error(error);
+      const errMsg: string = (error.message).split(":")[1];
+      return errMsg;
+    }
   };
 
   const logOut = () => {
-    // if (window.confirm("Are you sure you want to log out?")) {
       signOut(auth);
-    // }
   };
 
   // checks for auth change to update the user
   useEffect(() => {
     onAuthStateChanged(auth, (currUser) => {
       setUser(currUser);
-      setLoading(false);
     });
   }, []);
 
   return (
     // Con esto, todos los valores = {} serán accesibles desde los componentes hijos
-    <AuthContext.Provider value={{ user, signUp, logIn, logOut, loading }}>
+    <AuthContext.Provider value={{ user, signUp, logIn, logOut }}>
       {children}
     </AuthContext.Provider>
   );
