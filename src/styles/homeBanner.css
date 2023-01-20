@@ -1,0 +1,19 @@
+.banner {
+  background-color: #fee5cd;
+  padding: 10px 50px;
+  height: auto;
+  width: 100vw;
+  color: #ff441f;
+}
+
+.closeSesion {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.83;
+  color: #2e2c36;
+  cursor: pointer;
+}
+
+.closeSesion:hover {
+  text-decoration: underline;
+}

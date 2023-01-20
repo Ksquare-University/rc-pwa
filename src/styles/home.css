@@ -1,20 +1,32 @@
+/*
 .info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-  .info span {
-    margin-left: 20px;
-    color: #29D884;
-  }
-  
-  .content h2{
-    color: #ff441f;
-    background-color: rgb(254, 229, 205);
-    padding-left: 1.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    width: 100vw;
-    margin-top: 0;
-  }
+.info span {
+  margin-left: 20px;
+  color: #29d884;
+}
+
+.content h2 {
+  color: #ff441f;
+  background-color: rgb(254, 229, 205);
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 100vw;
+  margin-top: 0;
+}
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-container {
+  height: auto;
+}
