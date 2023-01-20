@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import loginImg from "../imgs/login.png";
 import registerImg from "../imgs/register.png";
 import { useAuth } from "../context/AuthCtx";
+import useFetchIP from "../hooks/useFetchIP";
 
 type Props = {};
 
@@ -23,6 +24,8 @@ const Login = (props: Props) => {
   const [successMsg, setSuccessMsg] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [city] = useFetchIP();
 
   // Para borrar el msj de error (si es que había dado uno) cuando se modifican los campos de email y pwd
   useEffect(() => {
@@ -39,8 +42,11 @@ const Login = (props: Props) => {
       const loggedIn = await logIn(email, password);
       if (typeof loggedIn === "string") {
         setErrMsg(`${loggedIn}`);
-      } else {
+      }
+      if (city === "Mérida") {
         navigate("/home");
+      } else {
+        navigate("/notAble");
       }
     } else {
       setErrMsg("Error: Both fields are required");

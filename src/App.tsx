@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Public from "./pages/Public";
 import RequireAuth from "./context/RequireAuth";
 import { AuthProvider } from "./context/AuthCtx";
+import NotAble from "./pages/notAble";
 
 function App() {
   return (
@@ -18,11 +19,23 @@ function App() {
             <Route path="login" element={<Login />} />
 
             {/* Private Routes */}
-            <Route path="home" element={<RequireAuth>
-              <Home />
-            </RequireAuth>}/>
-
+            <Route
+              path="home"
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
           </Route>
+          <Route
+            path="notAble"
+            element={
+              <RequireAuth>
+                <NotAble />
+              </RequireAuth>
+            }
+          ></Route>
         </Routes>
       </AuthProvider>
     </div>
