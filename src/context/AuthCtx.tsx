@@ -14,6 +14,7 @@ interface IAuthContext {
   signUp: (email: string, password: string) => Promise<any>;
   logIn: (email: string, password: string) => Promise<any>;
   logOut: () => any;
+  loading: any;
 }
 
 let AuthContext = createContext<IAuthContext>(null!);
@@ -26,6 +27,7 @@ interface Props {
 export const AuthProvider = ({ children }: Props) => {
 
   const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
   const signUp = async (email: string, password: string) => {
     try {
@@ -60,12 +62,13 @@ export const AuthProvider = ({ children }: Props) => {
   useEffect(() => {
     onAuthStateChanged(auth, (currUser) => {
       setUser(currUser);
+      setLoading(false);
     });
   }, []);
 
   return (
     // Con esto, todos los valores = {} serán accesibles desde los componentes hijos
-    <AuthContext.Provider value={{ user, signUp, logIn, logOut }}>
+    <AuthContext.Provider value={{ user, signUp, logIn, logOut, loading }}>
       {children}
     </AuthContext.Provider>
   );
