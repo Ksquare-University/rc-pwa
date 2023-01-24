@@ -9,7 +9,11 @@ type Props = {
 const RequireAuth = ({children}: Props) => {
 
   const location = useLocation()
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
+
+  if (loading) {
+    return <h1>Loading ....</h1>;
+  }
 
   return ( 
     user ? <>{children}</> : <Navigate to={'/login'} state={{from: location}} replace/> 
