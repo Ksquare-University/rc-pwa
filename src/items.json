@@ -1,26 +1,20 @@
 [
   {
     "id": 1,
-    "name": "Book",
-    "price": 10.99,
+    "name": "Hamburguesa Tradicional",
+    "price": 200,
     "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
   },
   {
     "id": 2,
-    "name": "Computer",
-    "price": 1199,
-    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+    "name": "Refresco",
+    "price": 20,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/refresco.jpeg?alt=media&token=ce23bc08-ad64-4592-94d6-0835dce05133"
   },
   {
     "id": 3,
-    "name": "Banana",
-    "price": 1.05,
-    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
-  },
-  {
-    "id": 4,
-    "name": "Car",
-    "price": 14000,
-    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+    "name": "Orden de papas a la francesa",
+    "price": 50,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/papas.jpg?alt=media&token=545aebab-213a-4a91-8b25-f8efc7732fb2"
   }
 ]

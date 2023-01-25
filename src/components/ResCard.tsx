@@ -8,7 +8,7 @@ import {
   CardActionArea,
   Avatar,
 } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 type Props = {
   post: {
     id: number;
@@ -21,9 +21,14 @@ type Props = {
 };
 
 export default function ResCard(props: Props) {
+  //Ir al menu del restaurante
+  const navigate = useNavigate();
+  const goStore = () => {
+    navigate("/store");
+  };
   return (
     <div>
-      <Card>
+      <Card onClick={goStore}>
         <CardActionArea>
           <CardMedia
             className="photo"
