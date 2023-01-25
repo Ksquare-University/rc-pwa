@@ -18,7 +18,7 @@ export function Navbar() {
                 onClick={openCart}
                 style={{position: "relative"}}
                 variant='outline-primary'>
-                {cartQuantity >0 && (
+                {cartQuantity > 0 && (
                     <div 
                     className='rounded-circle 
                     bg-danger d-flex 
