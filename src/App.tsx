@@ -7,11 +7,16 @@ import Public from "./pages/Public";
 import RequireAuth from "./context/RequireAuth";
 import { AuthProvider } from "./context/AuthCtx";
 import NotAble from "./pages/notAble";
+import { About } from "./pages/About";
+import { Restaurantes } from "./pages/Restaurantes";
+import {Navbar} from './components/Navbar'
+import {ShoppingCartProvider } from './context/ShoppingCartContext'
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+        <ShoppingCartProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             {/* Public Routes */}
@@ -28,6 +33,9 @@ function App() {
               }
             />
           </Route>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/About' element={<About />}></Route>
+          <Route path='/Restaurantes' element={<Restaurantes />}></Route>
           <Route
             path="notAble"
             element={
@@ -37,6 +45,7 @@ function App() {
             }
           ></Route>
         </Routes>
+        </ShoppingCartProvider>
       </AuthProvider>
     </div>
   );
