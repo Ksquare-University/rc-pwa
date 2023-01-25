@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Book",
+    "price": 10.99,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+  },
+  {
+    "id": 2,
+    "name": "Computer",
+    "price": 1199,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+  },
+  {
+    "id": 3,
+    "name": "Banana",
+    "price": 1.05,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+  },
+  {
+    "id": 4,
+    "name": "Car",
+    "price": 14000,
+    "imgUrl": "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44"
+  }
+]
