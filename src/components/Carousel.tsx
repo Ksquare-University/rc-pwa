@@ -2,27 +2,30 @@ import { MenuItems, responsive, Restaurants } from "./Data";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import MenuCard from "./MenuCard";
-import RestaurantCard from "./RestaurantCard";
 import "react-multi-carousel/lib/styles.css";
+import { Grid } from "@mui/material";
+import "../styles/ResContainer.css";
+import ResCard from "./ResCard";
 
 const CarouselComponent = () => {
   //Main restaurant state
   const [isMainData, setMainData] = useState(
     Restaurants.filter(
       (element) =>
-        element.itemId === "burger01" ||
-        "sushi01" ||
-        "healty01" ||
-        "pizza01" ||
-        "hotdog" ||
-        "taco01"
+        element.categoria === "rapida" ||
+        "italiana" ||
+        "mexicana" ||
+        "tex-mex" ||
+        "tacos"
     )
   );
 
   useEffect(() => {}, [isMainData]);
 
-  const setData = (itemId: string) => {
-    setMainData(Restaurants.filter((element) => element.itemId === itemId));
+  const setData = (categoria: string) => {
+    setMainData(
+      Restaurants.filter((element) => element.categoria === categoria)
+    );
   };
 
   const resetMain = () => {
@@ -31,12 +34,11 @@ const CarouselComponent = () => {
     setMainData(
       Restaurants.filter(
         (element) =>
-          element.itemId === "burger01" ||
-          "sushi01" ||
-          "healty01" ||
-          "pizza01" ||
-          "hotdog" ||
-          "taco01"
+          element.categoria === "rapida" ||
+          "italiana" ||
+          "mexicana" ||
+          "tex-mex" ||
+          "tacos"
       )
     );
   };
@@ -50,22 +52,25 @@ const CarouselComponent = () => {
       >
         {MenuItems &&
           MenuItems.map((data) => (
-            <div key={data.id} onClick={() => setData(data.itemId)}>
+            <div key={data.id} onClick={() => setData(data.categoria)}>
               <MenuCard imgSrc={data.imgSrc} name={data.name} />
             </div>
           ))}
       </Carousel>
-      <div className="dishitemContainer">
+      <Grid
+        container
+        justifyContent="center"
+        width={1}
+        spacing={3}
+        className="res-container"
+      >
         {isMainData &&
-          isMainData.map((data) => (
-            <RestaurantCard
-              key={data.id}
-              id={data.id}
-              imgSrc={data.imgSrc}
-              name={data.name}
-            />
+          isMainData.map((post) => (
+            <Grid item md={3} sm={5} xs={10} key={post.id}>
+              <ResCard post={post} />
+            </Grid>
           ))}
-      </div>
+      </Grid>
       <div className="buttonContainer">
         <button onClick={resetMain}>Quitar filtros</button>
       </div>
