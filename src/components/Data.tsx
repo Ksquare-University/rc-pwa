@@ -7,7 +7,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 5,
+    items: 4,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -22,7 +22,7 @@ const MenuItems = [
   {
     id: "1",
     categoria: "rapida",
-    name: "Rapida",
+    name: "Rápida",
     imgSrc:
       "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/burger.jpg?alt=media&token=32d2e64b-c5c5-4452-946e-c22d35699e44",
   },
@@ -31,28 +31,28 @@ const MenuItems = [
     categoria: "italiana",
     name: "Italiana",
     imgSrc:
-      "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/sushi.jpg?alt=media&token=44e97651-a4a3-4bb3-9f6c-071752a6bff7",
+      "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/italiana.png?alt=media&token=c8812731-c0ae-4659-bd94-44fcc8502c53",
   },
   {
     id: "3",
     categoria: "mexicana",
     name: "Mexicana",
     imgSrc:
-      "https://images.immediate.co.uk/production/volatile/sites/30/2022/05/Three-bean-salad-with-mozzarella-deb0114.jpg",
+      "https://www.godinezgourmet.com/wp-content/uploads/2019/03/tortas-la-reforma-polanco-polanquito-ciudad-mexico-cdmx_0.jpg",
   },
   {
     id: "4",
     categoria: "tex-mex",
     name: "Tex-Mex",
     imgSrc:
-      "https://www.eluniverso.com/resizer/5N9j1EK0-8MMn30GXOMaL_y6GMI=/809x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/M7ROUAC34ZCI7AU3WN7GF4TAUY.jpg",
+      "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/tex-mex.jpg?alt=media&token=1c4d38c2-7120-468f-8a10-db37158b0bff",
   },
   {
     id: "5",
     categoria: "tacos",
     name: "Tacos",
     imgSrc:
-      "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/hot-dog.jpg?alt=media&token=984e5b06-6d1f-4a6e-9bf9-ec70845befdb",
+      "https://firebasestorage.googleapis.com/v0/b/rappi-39d97.appspot.com/o/taco.jpg?alt=media&token=bd28fcd8-0e68-44c6-8d98-2bb66989520a",
   },
 ];
 
