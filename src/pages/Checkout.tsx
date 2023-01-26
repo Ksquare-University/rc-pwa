@@ -14,6 +14,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { orderDetails } from "../features/orderSlice";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { CartItem } from "../components/CartItem";
+import { formatCurrency } from "../utilities/formatCurrency";
+import storeItems from "../items.json";
 
 type Props = {};
 
@@ -24,6 +28,7 @@ export const Checkout = (props: Props) => {
   const [isMissing, setIsMissing] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { cartItems, cartQuantity } = useShoppingCart();
 
   const handleRedirect = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -35,8 +40,8 @@ export const Checkout = (props: Props) => {
         tip: tip,
       })
     );
-    
-    if (address === "" || tip === ""){
+
+    if (address === "" || tip === "" || cartQuantity === 0) {
       setIsMissing(true);
     } else {
       navigate("/order");
@@ -45,7 +50,7 @@ export const Checkout = (props: Props) => {
 
   useEffect(() => {
     setIsMissing(false);
-  }, [address, tip])
+  }, [address, tip]);
 
   return (
     <div className="order">
@@ -62,11 +67,11 @@ export const Checkout = (props: Props) => {
         <section>
           <div className="round-box">
             <h5>Dirección de entrega</h5>
-            <hr /> 
+            <hr />
             <div>
-              <small className={
-                  isMissing ? "missing-data" : ""
-                }>Ingresa tu dirección *</small>
+              <small className={isMissing ? "missing-data" : ""}>
+                Ingresa tu dirección *
+              </small>
               <input
                 type="text"
                 value={address}
@@ -87,11 +92,15 @@ export const Checkout = (props: Props) => {
 
           <div className="round-box">
             <div className="hztal">
-              <h5>Wok Yeah!</h5>
+              <h5>Alitas Mexico</h5>
               {/* Ingresar aquí el número de productos en el carrito */}
-              <p>2 Productos</p>
+              <p className={isMissing ? "missing-data" : ""}>{cartQuantity} Productos *</p>
             </div>
-            <hr /> 
+            <hr />
+            {cartItems.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+            <hr />
             <div className="hztal">
               {/* Ingresar aquí los respectivos productos sacados del back */}
               <ul className="ul-order">
@@ -119,14 +128,14 @@ export const Checkout = (props: Props) => {
               <h5>Añade una propina</h5>
               <p>El 100% de esta recompensa va para tu Rappi.</p>
             </div>
-            <hr /> 
+            <hr />
             <div className="hztal">
               <h6>¡Las entregas no serían posibles sin ellos!</h6>
             </div>
             <br />
-            <small className={
-                  isMissing ? "missing-data" : ""
-                }>Ingresa un valor *</small>
+            <small className={isMissing ? "missing-data" : ""}>
+              Ingresa un valor *
+            </small>
             <div className="hztal order-tip">
               <input
                 type="number"
@@ -168,22 +177,27 @@ export const Checkout = (props: Props) => {
                   </ul>
                   {/* Ingresar aquí los respectivos costos sacados del back */}
                   <ul className="ul-order">
-                    <li>$219</li>
+                    <li>{formatCurrency(
+              cartItems.reduce((total, cartItem) => {
+                const item = storeItems.find((i) => i.id === cartItem.id);
+                return total + (item?.price || 0) * cartItem.quantity;
+              }, 0)
+            )}</li>
                     <li>${tip ? tip : 0}</li>
                     <li>$15</li>
-                    <li>$5</li>
+                    <li>$25</li>
                     <li>$0</li>
                     <li>
-                      <strong>$249</strong>{" "}
+                      <strong>${140 + Number(tip)}</strong>{" "}
                     </li>
                   </ul>
                 </div>
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <p className={
-                  isMissing ? "missing-data" : "offscreen"
-                }>Por favor, ingresa todos los campos obligatorios * </p>
+          <p className={isMissing ? "missing-data" : "offscreen"}>
+            Por favor, ingresa todos los campos obligatorios *{" "}
+          </p>
           <button className="pedir" type="submit" onClick={handleRedirect}>
             Hacer Pedido
           </button>

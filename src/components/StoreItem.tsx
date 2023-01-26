@@ -35,7 +35,8 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
         <div className="mt-auto">
           {quantity === 0 ? (
             <Button
-              className="w-100 btn btn-success"
+              className="w-100 btn"
+              id="buttonxd"
               onClick={() => increaseCartQuantity(id)}
             >
               + Añadir
@@ -50,7 +51,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                 style={{ gap: ".5rem" }}
               >
                 <Button
-                  className="btn btn-success"
+                  id="buttonxd" 
                   onClick={() => decreaseCartQuantity(id)}
                 >
                   -
@@ -59,7 +60,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
                   <span className="fs-3">{quantity}</span> en canasta
                 </div>
                 <Button
-                  className="btn btn-success"
+                  id="buttonxd"
                   onClick={() => increaseCartQuantity(id)}
                 >
                   +

@@ -11,64 +11,74 @@ import NotFound from "./pages/NotFound";
 import { Checkout } from "./pages/Checkout";
 import { Order } from "./pages/Order";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import Store from "./pages/Store";
+import { SidebarProvider } from "./context/SidebarContext";
 
 function App() {
   return (
     <div className="App">
-      <ShoppingCartProvider>
-        {/*<SidebarProvider>*/}
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              {/* Public Routes */}
-              <Route index element={<Public />} />
-              <Route path="login" element={<Login />} />
+      <AuthProvider>
+        <ShoppingCartProvider>
+          <SidebarProvider>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                {/* Public Routes */}
+                <Route index element={<Public />} />
+                <Route path="login" element={<Login />} />
 
-              {/* Private Routes */}
+                {/* Private Routes */}
+                <Route
+                  path="home"
+                  element={
+                    <RequireAuth>
+                      <Home />
+                    </RequireAuth>
+                  }
+                />
+                <Route
+                  path="store"
+                  element={
+                    <RequireAuth>
+                      <Store />
+                    </RequireAuth>
+                  }
+                ></Route>
+
+                <Route
+                  path="checkout"
+                  element={
+                    <RequireAuth>
+                      <Checkout />
+                    </RequireAuth>
+                  }
+                />
+
+                <Route
+                  path="order"
+                  element={
+                    <RequireAuth>
+                      <Order />
+                    </RequireAuth>
+                  }
+                />
+              </Route>
+
               <Route
-                path="home"
+                path="notAble"
                 element={
                   <RequireAuth>
-                    <Home />
+                    <NotAble />
                   </RequireAuth>
                 }
-              />
+              ></Route>
 
-              <Route
-                path="checkout"
-                element={
-                  <RequireAuth>
-                    <Checkout />
-                  </RequireAuth>
-                }
-              />
+              <Route path="/404" element={<NotFound />}></Route>
 
-              <Route
-                path="order"
-                element={
-                  <RequireAuth>
-                    <Order />
-                  </RequireAuth>
-                }
-              />
-            </Route>
-
-            <Route
-              path="notAble"
-              element={
-                <RequireAuth>
-                  <NotAble />
-                </RequireAuth>
-              }
-            ></Route>
-
-            <Route path="/404" element={<NotFound/>}></Route>
-            
-            <Route path="*" element={<Navigate replace to="/404"/>} ></Route>
-          </Routes>
-        </AuthProvider>
-        {/*</SidebarProvider>*/}
-      </ShoppingCartProvider>
+              <Route path="*" element={<Navigate replace to="/404" />}></Route>
+            </Routes>
+          </SidebarProvider>
+        </ShoppingCartProvider>
+      </AuthProvider>
     </div>
   );
 }

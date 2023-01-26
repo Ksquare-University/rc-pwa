@@ -17,12 +17,17 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Checkout } from "./Checkout";
+import { useShoppingCart } from "../context/ShoppingCartContext";
+import { CartItem } from "../components/CartItem";
+import { formatCurrency } from "../utilities/formatCurrency";
+import storeItems from "../items.json";
 
 type Props = {};
 
 export const Order = (props: Props) => {
   const order = useSelector(selectOrder);
   const { user } = useAuth();
+  const { cartItems, cartQuantity } = useShoppingCart();
 
   if (!order) {
     return <Checkout />;
@@ -52,28 +57,19 @@ export const Order = (props: Props) => {
         </header>
         <section>
           <div className="round-box">
-            <h5>Wok Yeah!</h5>
+            <h5>Alitas Mexico</h5>
           </div>
 
           <div className="round-box">
             <div className="hztal">
               <h5>Listado</h5>
               {/* Ingresar aquí el número de productos en el carrito */}
-              <p>2 Productos</p>
+              <p>{cartQuantity} Productos</p>
             </div>
             <hr />
-            <div className="hztal">
-              {/* Ingresar aquí los respectivos productos sacados del back */}
-              <ul className="ul-order">
-                <li>1 Thai wok</li>
-                <li>1 Combo Mar y Tierra</li>
-              </ul>
-              {/* Ingresar aquí los respectivos costos sacados del back */}
-              <ul className="ul-order">
-                <li>$100</li>
-                <li>$119</li>
-              </ul>
-            </div>
+            {cartItems.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
           </div>
 
           <div className="round-box">
@@ -98,7 +94,7 @@ export const Order = (props: Props) => {
                     Pago Total: <span>&nbsp;</span>
                   </h5>
                   {/* Ingresar aquí la suma de todos los datos sacados del redux */}
-                  <h5>$249</h5>
+                  <h5>$160</h5>
                 </div>
               </Typography>
             </AccordionSummary>
@@ -114,10 +110,10 @@ export const Order = (props: Props) => {
                   </ul>
                   {/* Ingresar aquí los respectivos costos sacados del back */}
                   <ul className="ul-order">
-                    <li>$219</li>
+                    <li>$120</li>
                     <li>${order.tip}</li>
                     <li>$15</li>
-                    <li>$5</li>
+                    <li>$25</li>
                     <li>$0</li>
                   </ul>
                 </div>
