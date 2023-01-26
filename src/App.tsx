@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <ShoppingCartProvider>
-        <SidebarProvider>
+        {/*<SidebarProvider>*/}
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -51,7 +51,7 @@ function App() {
             ></Route>
           </Routes>
         </AuthProvider>
-        </SidebarProvider>
+        {/*</SidebarProvider>*/}
       </ShoppingCartProvider>
     </div>
   );

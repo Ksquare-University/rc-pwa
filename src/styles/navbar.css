@@ -1,14 +1,14 @@
-.nav-start{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 350px;
+.nav-start {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 350px;
 }
-.nav-end{
-    padding-left: 1455px;
+.nav-end {
+  padding-left: 1000px;
 }
 
-nav{
-    display: flex;
-    flex-direction: row;
+nav {
+  display: flex;
+  flex-direction: row;
 }

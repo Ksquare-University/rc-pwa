@@ -32,7 +32,7 @@ const MenuCard = ({ imgSrc, name }: Props) => {
       className={`rowMenuCard ${active ? "active" : ""}`}
     >
       <img className="imgBox" src={imgSrc} alt=""></img>
-      <h3>{name}</h3>
+      <p>{name}</p>
       <div className="menuHover">
         <div className="iconHover"> ✓ </div>
       </div>
