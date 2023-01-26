@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* For overriding user agent stylesheet issues in chrome in the order.css */
+article{
+  display: inherit;
+  align-items: center;
+  gap: 1rem;
+}

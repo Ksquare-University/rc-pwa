@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import authReducer from '../features/authSlice'
 import userReducer from '../features/userSlice'
+import orderReducer from '../features/orderSlice'
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     user: userReducer,
+    order: orderReducer,
   },
 
 });
