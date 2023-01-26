@@ -1,0 +1,15 @@
+.checkout{
+    width: 100%;
+    border-radius: 8px;
+}
+.checkout button{
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ubicacion{
+    color: #ff441f;
+    padding-bottom: 20px;
+}

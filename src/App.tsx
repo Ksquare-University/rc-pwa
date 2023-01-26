@@ -9,11 +9,13 @@ import { AuthProvider } from "./context/AuthCtx";
 import NotAble from "./pages/notAble";
 import Store from "./pages/Store";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
+import { SidebarProvider } from "./context/SidebarContext";
 
 function App() {
   return (
     <div className="App">
       <ShoppingCartProvider>
+        <SidebarProvider>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Layout />}>
@@ -49,6 +51,7 @@ function App() {
             ></Route>
           </Routes>
         </AuthProvider>
+        </SidebarProvider>
       </ShoppingCartProvider>
     </div>
   );
