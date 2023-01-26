@@ -1,6 +1,6 @@
 import "../styles/homeBanner.css";
 import { useAuth } from "../context/AuthCtx";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const HomeBanner = () => {
   const { logOut } = useAuth(); // contiene el contexto de autenticación, podemos acceder a sus props
