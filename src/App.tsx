@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-//import "./styles/App.css";
+import { Route, Routes, Navigate } from "react-router-dom";
+import "./styles/App.css";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
@@ -7,9 +7,10 @@ import Public from "./pages/Public";
 import RequireAuth from "./context/RequireAuth";
 import { AuthProvider } from "./context/AuthCtx";
 import NotAble from "./pages/notAble";
-import Store from "./pages/Store";
+import NotFound from "./pages/NotFound";
+import { Checkout } from "./pages/Checkout";
+import { Order } from "./pages/Order";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
-import { SidebarProvider } from "./context/SidebarContext";
 
 function App() {
   return (
@@ -32,7 +33,26 @@ function App() {
                   </RequireAuth>
                 }
               />
+
+              <Route
+                path="checkout"
+                element={
+                  <RequireAuth>
+                    <Checkout />
+                  </RequireAuth>
+                }
+              />
+
+              <Route
+                path="order"
+                element={
+                  <RequireAuth>
+                    <Order />
+                  </RequireAuth>
+                }
+              />
             </Route>
+
             <Route
               path="notAble"
               element={
@@ -41,14 +61,10 @@ function App() {
                 </RequireAuth>
               }
             ></Route>
-            <Route
-              path="store"
-              element={
-                <RequireAuth>
-                  <Store />
-                </RequireAuth>
-              }
-            ></Route>
+
+            <Route path="/404" element={<NotFound/>}></Route>
+            
+            <Route path="*" element={<Navigate replace to="/404"/>} ></Route>
           </Routes>
         </AuthProvider>
         {/*</SidebarProvider>*/}
