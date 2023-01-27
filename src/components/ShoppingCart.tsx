@@ -20,8 +20,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header>
         <Offcanvas.Title>Tu canasta</Offcanvas.Title>
-        <button><RiIcons.RiCloseFill size={20} 
-        onClick={closeCart}/></button>
+        <button className="closebtn" onClick={closeCart}>&times;</button>
       </Offcanvas.Header>
       <Offcanvas.Body>
       <div className="ubicacion">
@@ -44,7 +43,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div>
           <div className="checkout">
-            <button><Nav><Nav.Link to='/checkout' className="text-white" as={NavLink}>Comprar canasta</Nav.Link></Nav></button>
+            <button onClick={closeCart}><Nav><Nav.Link to='/checkout' className="text-white" as={NavLink}>Comprar canasta</Nav.Link></Nav></button>
           </div>
         </Stack>
       </Offcanvas.Body>

@@ -37,7 +37,7 @@ const Login = (props: Props) => {
       if (typeof loggedIn === "string") {
         setErrMsg(`${loggedIn}`);
       }
-      if (city === "Mérida") {
+      if (city === "Tulancingo") {
         user.reloadUserInfo.customAttributes.split('"')[3] === "customer"
         ? navigate("/home")
         : setErrMsg("Error: You must have a customer role to login");

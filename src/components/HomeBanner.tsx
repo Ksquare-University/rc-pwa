@@ -13,9 +13,6 @@ const HomeBanner = () => {
     <div className="banner">
       <h2>Restaurantes a Domicilio</h2>
       <p>Hola, {user.displayName}. </p>
-      <p className="closeSesion" onClick={handleLogout}>
-        Cerrar sesión
-      </p>
     </div>
   );
 };
