@@ -13,6 +13,7 @@ type SidebarProps = {
 };
 
 export function Sidebar({ isOpen }: SidebarProps) {
+
   const { closeSidebar } = useSidebar();
   const { logOut, user } = useAuth(); // contiene el contexto de autenticación, podemos acceder a sus props
   const navigate = useNavigate();
@@ -37,16 +38,16 @@ export function Sidebar({ isOpen }: SidebarProps) {
             </Nav.Link>
           </Nav>
         </Offcanvas.Title>
-        <button>
-          <RiIcons.RiCloseFill size={20} onClick={closeSidebar} />
+        <button className="closebtn" onClick={closeSidebar}>
+        &times;
         </button>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <div className="sidebar-menu">
           <div className="order">
-            <Nav>
+            <Nav onClick={closeSidebar}>
               <Nav.Link to="/order" className="text-dark" as={NavLink}>
-                <button>1</button>Pedidos en curso
+                <button  className="orderbtn">1</button>Pedido en curso
               </Nav.Link>
             </Nav>
           </div>

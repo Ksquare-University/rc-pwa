@@ -21,6 +21,8 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import { CartItem } from "../components/CartItem";
 import { formatCurrency } from "../utilities/formatCurrency";
 import storeItems from "../items.json";
+import { useState } from "react";
+
 
 type Props = {};
 
@@ -28,6 +30,7 @@ export const Order = (props: Props) => {
   const order = useSelector(selectOrder);
   const { user } = useAuth();
   const { cartItems, cartQuantity } = useShoppingCart();
+  const [tip, setTip] = useState("");
 
   if (!order) {
     return <Checkout />;
@@ -94,7 +97,12 @@ export const Order = (props: Props) => {
                     Pago Total: <span>&nbsp;</span>
                   </h5>
                   {/* Ingresar aquí la suma de todos los datos sacados del redux */}
-                  <h5>$160</h5>
+                  <h5>{formatCurrency(
+                          cartItems.reduce((total, cartItem) => {
+                          const item = storeItems.find((i) => i.id === cartItem.id);
+                          return total + (item?.price || 0) * cartItem.quantity;
+                          }, 0) + Number(tip) + 15 + 25
+                      )}</h5>
                 </div>
               </Typography>
             </AccordionSummary>

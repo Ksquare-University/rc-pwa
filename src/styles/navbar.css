@@ -15,3 +15,9 @@ nav{
     display: flex;
     background-color: white;
 }
+button{
+    background-color: white;
+}
+.navbtn{
+    background-color: white;
+}

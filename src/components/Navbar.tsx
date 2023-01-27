@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <NavbarBs sticky="top" className="shadow-sm">
       <div className="nav-start">
-        <button>
+        <button className="navbtn">
             <HamMenu className='hamMenu'onClick={openSidebar}/>
         </button>
         <Nav.Link to="/home" as={NavLink}>

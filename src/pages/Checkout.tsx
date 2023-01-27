@@ -18,6 +18,9 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 import { CartItem } from "../components/CartItem";
 import { formatCurrency } from "../utilities/formatCurrency";
 import storeItems from "../items.json";
+import { StoreItem } from "../components/StoreItem";
+import { CheckoutItem } from "../components/CheckoutItem";
+
 
 type Props = {};
 
@@ -29,6 +32,7 @@ export const Checkout = (props: Props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems, cartQuantity } = useShoppingCart();
+
 
   const handleRedirect = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -53,6 +57,7 @@ export const Checkout = (props: Props) => {
   }, [address, tip]);
 
   return (
+    <>
     <div className="order">
       <main className="order-in-course">
         <header>
@@ -98,7 +103,7 @@ export const Checkout = (props: Props) => {
             </div>
             <hr />
             {cartItems.map((item) => (
-              <CartItem key={item.id} {...item} />
+              <CheckoutItem key={item.id} {...item} />
             ))}
             <hr />
             <div className="hztal">
@@ -183,12 +188,18 @@ export const Checkout = (props: Props) => {
                 return total + (item?.price || 0) * cartItem.quantity;
               }, 0)
             )}</li>
-                    <li>${tip ? tip : 0}</li>
-                    <li>$15</li>
-                    <li>$25</li>
-                    <li>$0</li>
+                    <li>MX${tip ? tip : 0}</li>
+                    <li>MX$15</li>
+                    <li>MX$25</li>
+                    <li>MX$0</li>
                     <li>
-                      <strong>${140 + Number(tip)}</strong>{" "}
+                      <strong>{formatCurrency(
+                          cartItems.reduce((total, cartItem) => {
+                          const item = storeItems.find((i) => i.id === cartItem.id);
+                          return total + (item?.price || 0) * cartItem.quantity;
+                          }, 0) + Number(tip) + 15 + 25
+                      )}
+                      </strong>{" "}
                     </li>
                   </ul>
                 </div>
@@ -198,11 +209,14 @@ export const Checkout = (props: Props) => {
           <p className={isMissing ? "missing-data" : "offscreen"}>
             Por favor, ingresa todos los campos obligatorios *{" "}
           </p>
+          <div>
           <button className="pedir" type="submit" onClick={handleRedirect}>
             Hacer Pedido
           </button>
+          </div>
         </aside>
       </main>
     </div>
+    </>
   );
 };
