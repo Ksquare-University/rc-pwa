@@ -1,0 +1,35 @@
+
+.quantity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+}
+.quantity button {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout{
+ height: 105px;   
+}
+
+.delete{
+    padding: 0;
+    margin:0;
+    background-color: white;
+    color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid red ;
+}
+.plusminus{
+    width: 30px;
+    height: 20px;
+    border-radius: 8px;
+}
