@@ -23,7 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 {/* Public Routes */}
-                <Route index element={<Public />} />
+                <Route index element={<Login />} />
                 <Route path="login" element={<Login />} />
 
                 {/* Private Routes */}

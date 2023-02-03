@@ -9,7 +9,6 @@ import useFetchIP from "../hooks/useFetchIP";
 type Props = {};
 
 const Login = (props: Props) => {
-
   const navigate = useNavigate();
   const { user, logIn, signUp } = useAuth(); // aqui tenemnos un objeto que contiene el contexto de autenticación, podemos acceder a sus props
 
@@ -37,10 +36,10 @@ const Login = (props: Props) => {
       if (typeof loggedIn === "string") {
         setErrMsg(`${loggedIn}`);
       }
-      if (city === "Tulancingo") {
+      if (city === "Mérida") {
         user.reloadUserInfo.customAttributes.split('"')[3] === "customer"
-        ? navigate("/home")
-        : setErrMsg("Error: You must have a customer role to login");
+          ? navigate("/home")
+          : setErrMsg("Error: You must have a customer role to login");
       } else {
         navigate("/notAble");
       }
