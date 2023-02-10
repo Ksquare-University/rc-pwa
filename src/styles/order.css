@@ -1,0 +1,170 @@
+.order{
+    background-color: #f9f9f9;
+}
+
+.order-navbar{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.order-rappilogo{
+    justify-self: center;
+}
+
+input.address-details{
+    width: 100%;
+    padding: 10px;
+    margin: 0.3rem 0;
+    font-size: 12px;
+    outline: none;
+    border: 1px solid #F7F8F9;
+    background-color: #F7F8F9;
+    border-radius: 5px;
+    color: #000;
+}
+
+input.address-details:focus{
+    border: 1px solid #29D884;
+}
+
+div.order-tip{
+   justify-content: flex-start;
+}
+
+input.tip{
+    width: 15%;
+    padding: 10px;
+    margin: 0.3rem 0;
+    font-size: 12px;
+    outline: none;
+    border: 1px solid #F7F8F9;
+    background-color: #F7F8F9;
+    border-radius: 5px;
+    color: #000;
+}
+
+input.tip:focus{
+    border: 1px solid #29D884;
+}
+
+.home-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold; 
+}
+
+.order-link{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold; 
+}
+
+.order-in-course{
+    margin: auto;
+    background-color: #f9f9f9;
+    display: grid;
+    width: 80vw;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "header header"
+    "section aside";
+    gap: 2rem;
+}
+
+.round-box{
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0.5px 1px 1px rgb(138, 138, 138);
+}
+
+header{
+    margin-top: 2rem;
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+section{
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+aside{
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.delivery-map{
+    width: 80vw;
+}
+
+.circle{
+    width: 2.5rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgb(150, 150, 150);
+}
+
+header h6{
+    padding: 0.5rem 0;
+}
+aside h6{
+    display: flex;
+}
+
+div .ul-order{
+    padding: 0;
+}
+
+p.duda{
+    color: #e93c19;
+    margin-bottom: 0;
+}
+
+p.listo{
+    margin: 0;
+}
+
+p.tu-rappi{
+    margin: 0;
+}
+
+.hztal{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+li{
+    list-style: none;
+    padding: 0.2rem;
+}
+
+button.pedir{
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: 1rem 0;
+    background-color: #29D884;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.pedir:hover{
+    background-color: #ff441f;
+}
+
+.missing-data{
+    color: red;
+}

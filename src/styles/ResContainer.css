@@ -1,0 +1,33 @@
+
+.RestaurantContainer {
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+.RestaurantContainer:hover {
+  scale: 1.1;
+}
+.filters {
+  text-align: left;
+  margin-left: 1em;
+  padding: 2em;
+}
+.rating {
+  margin-top: -1em;
+}
+
+.photo {
+  border-radius: 1em;
+}
+.rating-container {
+  padding: 4px;
+  display: flex;
+  margin-right: 1em;
+  color: orange;
+  background-color: rgb(247, 212, 148);
+  border-radius: 20%;
+}
+.rating-text {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0.5em;
+}
